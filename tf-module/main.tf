@@ -1,13 +1,19 @@
 terraform {
+  required_version = ">= 0.13"
   required_providers {
     helm = {
       source  = "hashicorp/helm"
+      version = ">= 2.0.0"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
       version = ">= 2.0.0"
     }
   }
 }
 
 provider "helm" {}
+provider "kubernetes" {}
 
 resource "helm_release" "activemq" {
   name       = var.deployment_name
