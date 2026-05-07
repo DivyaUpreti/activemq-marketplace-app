@@ -1,0 +1,18 @@
+# Terraform temporary files
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+
+# OS generated files
+.DS_Store
+.directory
+
+# Local archives/zips
+*.zip
+*.tgz
+*.gz
+
+# Personal credentials (if any)
+*.ppk
+*.pem
