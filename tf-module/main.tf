@@ -17,7 +17,7 @@ provider "kubernetes" {}
 
 resource "helm_release" "activemq" {
   name       = var.deployment_name
-  repository = "oci://us-docker.pkg.dev/cloud-marketplace-ops-test/gcr.io"
+  repository = "oci://us-docker.pkg.dev/cloud-marketplace-ops-test/activemq"
   chart      = "activemq"
   version    = "1.0.0"
   namespace  = var.namespace
