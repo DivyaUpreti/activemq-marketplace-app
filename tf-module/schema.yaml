@@ -1,7 +1,3 @@
-info:
-  title: ActiveMQ
-  version: 6.1
-
 images:
   activemq6:
     variables:
@@ -9,27 +5,3 @@ images:
         type: REPO_WITH_REGISTRY_WITH_NAME
       image_tag:
         type: TAG
-variables:
-  deployment_name:
-    type: string
-    x-google-marketplace:
-      type: DEPLOYMENT_NAME
-  namespace:
-    type: string
-    x-google-marketplace:
-      type: NAMESPACE
-  image_repo:
-    type: string
-  image_tag:
-    type: string
-  persistence_storage_class:
-    type: string
-    x-google-marketplace:
-      type: STORAGE_CLASS
-  persistence_size:
-    type: string
-    default: "20Gi"
-  console_password:
-    type: string
-    x-google-marketplace:
-      type: GENERATED_PASSWORD

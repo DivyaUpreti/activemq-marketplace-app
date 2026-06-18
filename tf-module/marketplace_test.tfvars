@@ -8,5 +8,11 @@ persistence_size          = "10Gi"
 # override these three with the actual values it generates 
 # during the test, but they must be present to pass the check.
 console_password          = "test-password-123"
-image_repo                = "us-docker.pkg.dev/cloud-marketplace-ops/activemq/activemq6"
-image_tag                 = "6.1"
+# image_repo                = "us-docker.pkg.dev/cloud-marketplace-ops/activemq/activemq6"
+# image_tag                 = "6.1"
+
+# GKE Cluster values for plan simulation
+cluster_name     = "test-cluster"
+cluster_location = "us-central1-a"
+network_name     = "default"
+subnetwork_name  = "default"
