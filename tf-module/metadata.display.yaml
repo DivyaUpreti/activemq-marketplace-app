@@ -1,0 +1,90 @@
+apiVersion: blueprints.cloud.google.com/v1alpha1
+kind: BlueprintMetadata
+metadata:
+  name: activemq-gke-display
+  annotations:
+    config.kubernetes.io/local-config: "true"
+spec:
+  info:
+    title: ActiveMQ GKE Integration
+    source: {}
+  ui:
+    input:
+      variables:
+        # Hide system variables from the user form
+        project_id:
+          name: project_id
+          title: Project ID
+          invisible: true
+        helm_chart_name:
+          name: helm_chart_name
+          title: Helm Chart Name
+          invisible: true
+        helm_chart_repo:
+          name: helm_chart_repo
+          title: Helm Chart Repository
+          invisible: true
+        helm_chart_version:
+          name: helm_chart_version
+          title: Helm Chart Version
+          invisible: true
+        image_repo:
+          name: image_repo
+          title: ActiveMQ Image Repository
+          invisible: true
+        image_tag:
+          name: image_tag
+          title: ActiveMQ Image Tag
+          invisible: true
+  
+        # Expose GKE cluster variables
+        cluster_location:
+          name: cluster_location
+          title: Cluster Location
+          tooltip: Select the location (zone or region) for your GKE cluster.
+          xGoogleProperty:
+            type: ET_GCE_LOCATION
+        cluster_name:
+          name: cluster_name
+          title: Cluster Name
+          tooltip: Enter the name of the GKE cluster.
+          xGoogleProperty:
+            type: ET_GKE_CLUSTER
+            gkeCluster:
+              locationVariable: cluster_location
+        network_name:
+          name: network_name
+          title: VPC Network Name
+          tooltip: The Google Cloud VPC network name to bind node instances.
+        subnetwork_name:
+          name: subnetwork_name
+          title: VPC Subnetwork Name
+          tooltip: The subnetwork in which node instances will allocate IP addresses.
+  
+        # Expose ActiveMQ application variables
+        deployment_name:
+          name: deployment_name
+          title: Deployment Name
+          tooltip: Enter a name for your ActiveMQ application deployment.
+        namespace:
+          name: namespace
+          title: Kubernetes Namespace
+          tooltip: Kubernetes namespace in which the ActiveMQ application will deploy.
+        persistence_storage_class:
+          name: persistence_storage_class
+          title: Storage Class
+          tooltip: Persistent Disk Storage Class used by ActiveMQ.
+        persistence_size:
+          name: persistence_size
+          title: Persistence Disk Size
+          tooltip: Storage size requested for ActiveMQ volumes (e.g. 20Gi).
+        admin_bind_all_hosts:
+          name: admin_bind_all_hosts
+          title: Bind Admin Console to all host interfaces
+          tooltip: Set to true to bind the web management console to all network interfaces.
+        console_password:
+          name: console_password
+          title: ActiveMQ Admin Password
+          tooltip: Set a secure password to login to the ActiveMQ web administration panel.
+  
+  
